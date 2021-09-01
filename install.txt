@@ -1,0 +1,15 @@
+npm install 
+
+npm install axios - instalado
+npm install react-hook-form
+
+//npm install react-transition-group
+
+npm install primereact 
+npm install formik - instalado
+npm install yup - instalado
+npm install react-modal
+npm install react-icons
+
+npm install node-sass@^5.0.0 - instalado
+

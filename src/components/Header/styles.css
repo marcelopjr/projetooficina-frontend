@@ -1,0 +1,16 @@
+.app-header {
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  background: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.logo {
+  height: 60px;
+  width: 220px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}

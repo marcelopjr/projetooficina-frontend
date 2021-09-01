@@ -1,0 +1,60 @@
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-container {
+  margin: 0;
+  padding: 0;
+  min-height: 1080px;
+  max-height: auto;
+
+  display: flex;
+  flex-direction: row;
+
+  overflow: hidden;
+}
+
+.warning_message {
+  color: rgb(221, 57, 28);
+}
+
+.div_sidebar {
+  justify-content: left;
+
+  min-height: 1080px;
+  max-height: auto;
+
+  width: 18%;
+}
+
+.div_card {
+  width: 82%;
+
+  min-height: 1080px;
+  max-height: auto;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.sub_div {
+  border: 2px solid #555;
+
+  border-radius: 5px;
+
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  padding: 10px;
+}
