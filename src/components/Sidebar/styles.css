@@ -123,7 +123,7 @@
 }
 
 .botao-deslogar {
-  margin-top: 660px;
+  margin-top: 615px;
   color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;
@@ -135,4 +135,8 @@
 
 .botao-deslogar i {
   margin-right: 20px;
+}
+
+.botao-deslogar:hover {
+  cursor: pointer;
 }

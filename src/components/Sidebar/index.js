@@ -68,19 +68,23 @@ export const SideMenuBar = () => {
               </li>
 
               <li>
-                <a href="/">
-                  <i class="fas fa-address-book"></i>Meus Carros
+                <a href="/meuscarros">
+                  <i class="fas fa-car"></i>Meus Carros
                 </a>
               </li>
               <li>
-                <a href="/">
-                  <i class="fas fa-cog"></i>Meus Pedidos
+                <a href="/meuspedidos">
+                  <i class="fas fa-clipboard-list"></i>Meus Pedidos
                 </a>
               </li>
-
-              <li class="botao-deslogar" onClick={() => deslogar()}>
-                <i class="fas fa-cog"></i>Sair
-              </li>
+              <div class="botao-deslogar">
+                <li onClick={() => alert("Editar Perfil")}>
+                  <i class="fas fa-user-cog"></i>Meu Perfil
+                </li>
+                <li onClick={() => deslogar()}>
+                  <i class="fas fa-sign-out-alt"></i>Sair
+                </li>
+              </div>
             </>
           ) : (
             <>
