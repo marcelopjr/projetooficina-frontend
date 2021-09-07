@@ -25,13 +25,13 @@ const PedidoBody = ({ pedido }) => {
             </h4>
           </div>
 
-          <p>{pedido.status_atual}</p>
+          <p>{pedido.os_aberta ? "ABERTA" : "FECHADA"}</p>
         </div>
 
         <div className="data-div">
           <div className="title-div">
             <h4>
-              <strong>DATA</strong>
+              <strong>ABERTURA</strong>
             </h4>
           </div>
           <p>{pedido.data_abertura}</p>
@@ -52,7 +52,7 @@ const PedidoBody = ({ pedido }) => {
         </div>
       </div>
 
-      {isOpen ? <p>{pedido.id}</p> : null}
+      {isOpen ? <DetalhesPedido pedido={pedido} /> : null}
     </>
   );
 };

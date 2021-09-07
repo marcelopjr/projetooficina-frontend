@@ -1,0 +1,41 @@
+.status-main-div {
+  width: 80%;
+  align-self: center;
+  display: flex;
+}
+
+.espacamento {
+  margin-left: 50%;
+}
+
+.status-body-div-1 {
+  width: 50%;
+  height: 100px;
+  background-color: lightskyblue;
+  border-radius: 15px 30px 30px;
+}
+.status-body-div-2 {
+  width: 50%;
+  height: 100px;
+  background-color: lightskyblue;
+  border-radius: 15px 30px 30px;
+}
+
+.status-data-div {
+  background-color: white;
+  width: 30%;
+  border-radius: 15px 30px 30px;
+}
+
+.timeline-1 {
+  height: 100%;
+  border-left: 8px solid lightseagreen;
+  margin: 0 10px;
+}
+
+.timeline-2 {
+  height: 100%;
+  border-left: 8px solid lightseagreen;
+
+  margin: 0 10px;
+}
