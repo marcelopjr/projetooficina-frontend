@@ -1,0 +1,14 @@
+.acoes-main-div {
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-line {
+  width: 5px;
+  height: 25px;
+  border-left: 5px solid #000;
+}

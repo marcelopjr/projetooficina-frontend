@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Cookie from "js-cookie";
 import api from "../../service/api";
 import PedidoBody from "../../components/MeusPedidos/PedidoBody";
 
+import { useHistory } from "react-router-dom";
+import AuthContext from "../../context/authContext";
 import "./styles.css";
+import { FormikProvider } from "formik";
 
 const Body = () => {
   const [meusPedidos, setMeusPedidos] = useState([]);
   // const [filtro, setFiltro] = useState("");
+  const history = useHistory();
+  const { verifyError } = useContext(AuthContext);
 
   useEffect(() => {
     if (Cookie.get("@token")) {
-      api
-        .get("/usuarios/minhasos", {
-          headers: {
-            Authorization: `Bearer ${Cookie.get("@token")}`,
-          },
-        })
-        .then((response) => setMeusPedidos(response.data))
-        .catch((error) => console.log(error));
+      BuscarOS("Todas");
     }
   }, []);
 
@@ -31,7 +29,7 @@ const Body = () => {
           },
         })
         .then((response) => setMeusPedidos(response.data))
-        .catch((error) => console.log(error));
+        .catch((error) => verifyError(error));
     } else if (filtro === "Abertas") {
       api
         .get("/usuarios/minhasosabertas", {
@@ -40,7 +38,7 @@ const Body = () => {
           },
         })
         .then((response) => setMeusPedidos(response.data))
-        .catch((error) => console.log(error));
+        .catch((error) => verifyError(error));
     } else if (filtro === "Fechadas") {
       api
         .get("/usuarios/minhasosfechadas", {
@@ -49,7 +47,7 @@ const Body = () => {
           },
         })
         .then((response) => setMeusPedidos(response.data))
-        .catch((error) => console.log(error));
+        .catch((error) => verifyError(error));
     }
   }
 

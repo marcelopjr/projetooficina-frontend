@@ -1,41 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import Cookie from "js-cookie";
+import Swal from "sweetalert2";
 
 import { useHistory } from "react-router-dom";
-
+import AuthContext from "../../context/authContext";
 import api from "../../service/api";
 import "./styles.css";
 
 export const LoginInput = () => {
-  const history = useHistory();
-
-  var expiracao = new Date(new Date().getTime() + 15 * 60 * 1000);
+  const { tryLogin } = useContext(AuthContext);
 
   const handleSubmit = (values) => {
-    const data = {
-      email: values.email,
-      senha: values.password,
-    };
-    api
-      .post("/auth", data)
-      .then((response) => {
-        if (response.status === 200) {
-          // localStorage.setItem("Token", response.data);
-          Cookie.set("@token", response.data, {
-            expires: expiracao,
-          });
-          alert("Logado");
-          history.push("/");
-        }
-      })
-      .catch((error) => alert("Login ou senha invalido!"));
-  };
-
-  const handleLogout = () => {
-    localStorage.clear();
-    alert("Deslogado");
+    tryLogin(values);
   };
 
   const validations = yup.object().shape({

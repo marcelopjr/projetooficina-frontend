@@ -28,8 +28,8 @@ const DetalhesPedido = ({ pedido }) => {
             </p>
 
             <p>
-              <strong>STATUS ATUAL: </strong>
-              {pedido.status_atual}
+              <strong>STATUS: </strong>
+              {pedido.os_aberta ? "ABERTA" : "FECHADA"}
             </p>
             <p>
               <strong>ENTREGA DO CARRO: </strong>
@@ -37,7 +37,9 @@ const DetalhesPedido = ({ pedido }) => {
             </p>
             <p>
               <strong>CONCLUSAO: </strong>
-              {pedido.data_finalizada}
+              {pedido.data_finalizada
+                ? pedido.data_finalizada
+                : "Nao finalizado"}
             </p>
           </div>
         </div>
@@ -69,7 +71,13 @@ const DetalhesPedido = ({ pedido }) => {
         <div className="carro-div">
           <h3 className="title-details">STATUS</h3>
           {pedido.listaStatus.map((status) => (
-            <PedidoStatus status={status} posicao={mudarPosicao()} />
+            <PedidoStatus
+              status={status}
+              posicao={mudarPosicao()}
+              listaAcoes={
+                status.nome === "Em Reparo" ? pedido.listaAcoes : null
+              }
+            />
           ))}
         </div>
       </div>

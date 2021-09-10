@@ -18,7 +18,7 @@ const Home = () => {
         <div className="div_card">
           <Header />
           <div className="sub_div">
-            <h1>Bem-vindo a oficina Clean Car!</h1>
+            <h1>Bem-vindo a oficina SPEED CAR!</h1>
           </div>
           <Footer />
         </div>

@@ -21,11 +21,11 @@ const PedidoBody = ({ pedido }) => {
         <div className="status-div">
           <div className="title-div">
             <h4>
-              <strong>STATUS</strong>
+              <strong>STATUS ATUAL</strong>
             </h4>
           </div>
 
-          <p>{pedido.os_aberta ? "ABERTA" : "FECHADA"}</p>
+          <p>{pedido.status_atual}</p>
         </div>
 
         <div className="data-div">

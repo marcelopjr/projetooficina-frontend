@@ -20,7 +20,7 @@
   justify-content: left;
   align-items: baseline;
   padding: 5px 0;
-  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
 }
 
 .carro-infos {

@@ -6,6 +6,7 @@ import avatar from "../../assets/avatar.png";
 import api from "../../service/api";
 import Cookie from "js-cookie";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const SideMenuBar = () => {
   const history = useHistory();
@@ -27,7 +28,6 @@ export const SideMenuBar = () => {
   function deslogar() {
     setUsuarioLogado();
     Cookie.remove("@token");
-    alert("Deslogado");
     history.push("/");
   }
 
@@ -61,43 +61,64 @@ export const SideMenuBar = () => {
         <ul class="list-items">
           {Cookie.get("@token") ? (
             <>
-              <li>
-                <a href="/">
-                  <i class="fas fa-home"></i>Home
-                </a>
-              </li>
+              <div class="div-opcoes">
+                <li>
+                  <a href="/">
+                    <i class="fas fa-home"></i>Home
+                  </a>
+                </li>
 
-              <li>
-                <a href="/meuscarros">
-                  <i class="fas fa-car"></i>Meus Carros
-                </a>
-              </li>
-              <li>
-                <a href="/meuspedidos">
-                  <i class="fas fa-clipboard-list"></i>Meus Pedidos
-                </a>
-              </li>
+                <li>
+                  <a href="/meuscarros">
+                    <i class="fas fa-car"></i>Meus Carros
+                  </a>
+                </li>
+                <li>
+                  <a href="/meuspedidos">
+                    <i class="fas fa-clipboard-list"></i>Meus Pedidos
+                  </a>
+                </li>
+              </div>
               <div class="botao-deslogar">
                 <li onClick={() => alert("Editar Perfil")}>
                   <i class="fas fa-user-cog"></i>Meu Perfil
                 </li>
-                <li onClick={() => deslogar()}>
+                <li
+                  onClick={() =>
+                    Swal.fire({
+                      title: "Tem certeza que deseja sair?",
+                      // text: "You won't be able to revert this!",
+                      icon: "warning",
+                      showCancelButton: true,
+                      confirmButtonColor: "#3085d6",
+                      cancelButtonColor: "#d33",
+                      confirmButtonText: "Sim, sair!",
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        Swal.fire("Deslogado!", "", "success");
+                        deslogar();
+                      }
+                    })
+                  }
+                >
                   <i class="fas fa-sign-out-alt"></i>Sair
                 </li>
               </div>
             </>
           ) : (
             <>
-              <li>
-                <a href="/">
-                  <i class="fas fa-home"></i>Home
-                </a>
-              </li>
-              <li>
-                <a href="/login">
-                  <i class="fas fa-user"></i>Login
-                </a>
-              </li>
+              <div>
+                <li>
+                  <a href="/">
+                    <i class="fas fa-home"></i>Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/login">
+                    <i class="fas fa-user"></i>Login
+                  </a>
+                </li>
+              </div>
             </>
           )}
 
