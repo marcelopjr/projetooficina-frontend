@@ -19,7 +19,7 @@ const MeusPedidos = () => {
         <div className="div_card">
           <Header />
           <div className="sub_div">
-            <h1 style={{ marginBottom: 10 }}>Seus Pedidos</h1>
+            <h1 style={{ marginBottom: 10 }}>Meus Pedidos</h1>
             <Body></Body>
           </div>
           <Footer />

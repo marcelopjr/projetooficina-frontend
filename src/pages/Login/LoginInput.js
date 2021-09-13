@@ -63,13 +63,21 @@ export const LoginInput = () => {
             <br />
           </div>
 
+          <div class="esqueceu-senha-div">
+            <a href="" class="esqueceu-senha-a">
+              Esqueceu a senha?
+            </a>
+          </div>
+
           <button className="Form_Btn-Input" type="submit">
             Login
           </button>
         </Form>
       </Formik>
+
       <button
         className="Form_Btn-Input"
+        type="button"
         onClick={() => console.log("Cadastro Screen")}
       >
         Cadastrar-se

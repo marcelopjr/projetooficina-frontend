@@ -3,4 +3,53 @@
   flex-direction: row;
   width: 75%;
   margin-bottom: 15px;
+
+  justify-content: space-between;
+}
+.solicitar-serviço-click {
+  height: 24px;
+}
+
+.solicitar-serviço-click:hover {
+  border-bottom: 1px solid lightskyblue;
+  color: lightskyblue;
+  cursor: pointer;
+}
+
+#novo-servico-div {
+  overflow: hidden;
+  width: 80%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  max-height: 600px;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+.hide {
+  max-height: 0 !important;
+  pointer-events: none !important;
+  border: 0px solid #000 !important;
+  padding: 0px !important;
+}
+
+.nv-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-close {
+  padding-right: 10px;
+  background: transparent;
+  border: transparent;
+}
+
+.btn-close:hover {
+  cursor: pointer;
+  color: red;
 }

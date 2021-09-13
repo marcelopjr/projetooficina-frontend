@@ -53,3 +53,20 @@
 .Form_Btn-Input:active {
   transform: translateY(4px);
 }
+
+.esqueceu-senha-div {
+  width: 88%;
+  height: 15px;
+  display: flex;
+  justify-content: right;
+}
+
+.esqueceu-senha-a {
+  color: #000;
+  font-size: 12px;
+}
+
+.esqueceu-senha-a:hover {
+  border-bottom: 1px solid lightskyblue;
+  color: lightskyblue;
+}

@@ -1,0 +1,39 @@
+.Form-Input-nv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Form_Group-Input-nv {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-title-and-error-nv {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+.title-input-nv {
+  /* width: 40%; */
+
+  display: flex;
+  justify-content: left;
+}
+
+.error-msg-nv {
+  /* width: 50%; */
+  display: flex;
+  justify-content: left;
+  margin-left: 2%;
+}
+
+.Form_Field-Input-nv {
+  width: 50%;
+  height: 50px;
+}
