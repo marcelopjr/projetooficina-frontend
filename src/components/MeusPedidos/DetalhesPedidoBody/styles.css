@@ -3,16 +3,27 @@
 }
 
 .main-div {
-  border-top: 1px solid lightgrey;
   display: flex;
-  flex-direction: column;
-  width: 75%;
+  flex-direction: row;
+  width: 90%;
+}
+
+.pedido-detalhes {
 }
 
 .pedido-infos-div {
+  padding: 5px;
+  height: 400px;
+  width: 45%;
+  background-color: lightgrey;
+  border: 1px solid lightpink;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
 }
 
-.carro-div {
+.group-info-div {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,25 +31,28 @@
   justify-content: left;
   align-items: baseline;
   padding: 5px 0;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid white;
 }
 
 .carro-infos {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: left;
+  align-items: baseline;
+  /* justify-content: space-between; */
 }
 
-/* .status-div{
-    width: 100%;
+.btn-cancelar-pedido {
+  margin-top: 6px;
+}
 
+.status-div-detalhes {
+  width: 100%;
   display: flex;
   flex-direction: column;
-
+  border: 1px solid lightgrey;
   justify-content: left;
   align-items: baseline;
   padding: 5px 0;
-  border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
-} */
+}

@@ -1,0 +1,91 @@
+.novo-carro-click-div {
+  width: 45%;
+  height: 20px;
+  display: flex;
+  justify-content: right;
+  margin-bottom: 10px;
+}
+
+.novo-carro-click:hover {
+  border-bottom: 1px solid lightskyblue;
+  color: lightskyblue;
+  cursor: pointer;
+}
+
+#novo-carro-div {
+  align-self: baseline;
+  margin-left: 20%;
+  overflow: hidden;
+  width: 54%;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  max-height: 600px;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.hide-novo-carro-div {
+  max-height: 0 !important;
+  pointer-events: none !important;
+  border: 0px solid #000 !important;
+  padding: 0px !important;
+}
+
+#novo-carro-div .nc-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.Form-Input-nc {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  justify-items: center;
+  column-gap: 1px;
+  row-gap: 1px;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.Form_Group-Input-nc {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-title-and-error-nc {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.title-input-nc {
+  /* width: 40%; */
+
+  display: flex;
+  justify-content: left;
+}
+
+.error-msg-nc {
+  /* width: 50%; */
+  display: flex;
+  justify-content: left;
+  margin-left: 2%;
+}
+
+.Form_Field-Input-nc {
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+}
+
+.Form_Field-Input-nc.error {
+  border-color: red;
+}

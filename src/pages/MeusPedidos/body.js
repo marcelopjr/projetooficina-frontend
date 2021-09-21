@@ -8,32 +8,22 @@ import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/authContext";
 import "./styles.css";
 import "./formstyles.css";
-import { FormikProvider } from "formik";
 import Swal from "sweetalert2";
 
 const Body = () => {
-  const [meusPedidos, setMeusPedidos] = useState([]);
   const [meusCarros, setMeusCarros] = useState([]);
+  const [meusPedidosAtt, setMeusPedidosAtt] = useState([]);
   // const [filtro, setFiltro] = useState("");
   const history = useHistory();
-  const { verifyError } = useContext(AuthContext);
+  const { verifyError, findOs, meusPedidos, setMeusPedidos } =
+    useContext(AuthContext);
 
   useEffect(() => {
     if (Cookie.get("@token")) {
-      BuscarOS("Todas");
+      findOs("Todas");
       BuscarMeusCarros();
     }
   }, []);
-
-  function solicitarServico() {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Servico Solicitado",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  }
 
   function ocultar() {
     var element = document.getElementById("novo-servico-div");
@@ -49,42 +39,11 @@ const Body = () => {
     api
       .get("/usuarios/meuscarros", {
         headers: {
-          Authorization: `Bearer ${Cookie.get("@token")}`,
+          Authorization: `Bearer ${JSON.parse(Cookie.get("@token")).token}`,
         },
       })
       .then((response) => setMeusCarros(response.data))
       .catch((error) => verifyError(error));
-  }
-
-  function BuscarOS(filtro) {
-    if (filtro === "Todas") {
-      api
-        .get("/usuarios/minhasos", {
-          headers: {
-            Authorization: `Bearer ${Cookie.get("@token")}`,
-          },
-        })
-        .then((response) => setMeusPedidos(response.data))
-        .catch((error) => verifyError(error));
-    } else if (filtro === "Abertas") {
-      api
-        .get("/usuarios/minhasosabertas", {
-          headers: {
-            Authorization: `Bearer ${Cookie.get("@token")}`,
-          },
-        })
-        .then((response) => setMeusPedidos(response.data))
-        .catch((error) => verifyError(error));
-    } else if (filtro === "Fechadas") {
-      api
-        .get("/usuarios/minhasosfechadas", {
-          headers: {
-            Authorization: `Bearer ${Cookie.get("@token")}`,
-          },
-        })
-        .then((response) => setMeusPedidos(response.data))
-        .catch((error) => verifyError(error));
-    }
   }
 
   const validations = yup.object().shape({
@@ -93,7 +52,30 @@ const Body = () => {
   });
 
   const handleSubmit = (values) => {
-    console.log("GG");
+    const data = {
+      data_entrega_carro: values.data,
+      carro_id: values.carro,
+    };
+    console.log(data);
+    api
+      .post("/ordemservicos/novaos", data, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(Cookie.get("@token")).token}`,
+        },
+      })
+      .then((resp) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: resp.data,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        findOs("Abertas");
+        document.getElementById("pedido-select").value = "Abertas";
+        ocultar();
+      })
+      .catch((error) => verifyError(error));
   };
 
   return (
@@ -105,7 +87,7 @@ const Body = () => {
             name="pedido"
             id="pedido-select"
             onChange={() =>
-              BuscarOS(document.getElementById("pedido-select").value)
+              findOs(document.getElementById("pedido-select").value)
             }
           >
             <option value="Todas" selected>
@@ -151,11 +133,11 @@ const Body = () => {
               <Field
                 name="carro"
                 className="Form_Field-Input-nv"
-                placeholder="E-mail"
+                placeholder="carro"
                 autoComplete="off"
                 as="select"
               >
-                <option>Carro:</option>
+                <option value="">Carro:</option>
                 {meusCarros.map((carro) => (
                   <option value={carro.id}>{carro.modelo}</option>
                 ))}
@@ -171,16 +153,16 @@ const Body = () => {
                 <div class="error-msg-nv">
                   <ErrorMessage
                     component="span"
-                    name="password"
+                    name="data"
                     className="Form_Error-Input"
                   />
                 </div>
               </div>
               <Field
-                name="password"
+                name="data"
                 type="date"
                 className="Form_Field-Input-nv"
-                placeholder="Senha"
+                placeholder="data"
               />{" "}
               <br />
             </div>

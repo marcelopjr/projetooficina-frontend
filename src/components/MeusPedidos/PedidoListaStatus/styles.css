@@ -1,5 +1,5 @@
 .status-main-div {
-  width: 80%;
+  width: 95%;
   align-self: center;
   display: flex;
 }
@@ -25,7 +25,7 @@
 
 .status-data-div {
   background-color: white;
-  width: 30%;
+  max-width: 40%;
   border-radius: 15px 30px 30px;
 }
 

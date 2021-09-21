@@ -12,12 +12,41 @@ export const SideMenuBar = () => {
   const history = useHistory();
   const [usuarioLogado, setUsuarioLogado] = useState();
 
+  var automaticLogout;
+  function secondsToExpire() {
+    var milisseconds = Math.abs(
+      new Date(JSON.parse(Cookie.get("@token")).expire) - new Date().getTime()
+    );
+    var seconds = Math.round(milisseconds / 1000);
+    if (seconds === 1) {
+      clearInterval(automaticLogout);
+      Swal.fire({
+        title: "Sessão expirada",
+        text: "Faça login novamente para continuar!",
+        icon: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ok!",
+        allowOutsideClick: false,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          history.push("/login");
+        }
+      });
+    }
+  }
+
+  if (Cookie.get("@token")) {
+    automaticLogout = setInterval(secondsToExpire, 1000);
+  }
+
   useEffect(() => {
     if (Cookie.get("@token")) {
       api
         .get("/usuarios/minhasinfos", {
           headers: {
-            Authorization: `Bearer ${Cookie.get("@token")}`,
+            Authorization: `Bearer ${JSON.parse(Cookie.get("@token")).token}`,
           },
         })
         .then((response) => setUsuarioLogado(response.data))
@@ -93,6 +122,7 @@ export const SideMenuBar = () => {
                       confirmButtonColor: "#3085d6",
                       cancelButtonColor: "#d33",
                       confirmButtonText: "Sim, sair!",
+                      allowOutsideClick: false,
                     }).then((result) => {
                       if (result.isConfirmed) {
                         Swal.fire("Deslogado!", "", "success");

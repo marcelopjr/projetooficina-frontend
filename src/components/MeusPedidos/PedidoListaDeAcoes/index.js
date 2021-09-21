@@ -10,7 +10,7 @@ const PedidoListaDeAcoes = ({ acao, last }) => {
           <strong>{acao.nome}</strong>
         </p>
 
-        <p>Peca: {acao.nome_peca}</p>
+        <p>{acao.nome_peca}</p>
         <p>{acao.data}</p>
       </div>
       {last ? null : <div class="bottom-line"></div>}

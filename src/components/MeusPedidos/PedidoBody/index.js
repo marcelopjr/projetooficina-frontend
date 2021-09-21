@@ -8,9 +8,9 @@ const PedidoBody = ({ pedido }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="body-div">
-        <div className="id-div">
-          <div className="title-div">
+      <div className="body-div-pedido">
+        <div className="id-div-pedido">
+          <div className="title-div-pedido">
             <h4>
               <strong>NÚMERO DO PEDIDO</strong>
             </h4>
@@ -19,7 +19,7 @@ const PedidoBody = ({ pedido }) => {
         </div>
 
         <div className="status-div">
-          <div className="title-div">
+          <div className="title-div-pedido">
             <h4>
               <strong>STATUS ATUAL</strong>
             </h4>
@@ -29,7 +29,7 @@ const PedidoBody = ({ pedido }) => {
         </div>
 
         <div className="data-div">
-          <div className="title-div">
+          <div className="title-div-pedido">
             <h4>
               <strong>ABERTURA</strong>
             </h4>

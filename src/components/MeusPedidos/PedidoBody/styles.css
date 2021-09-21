@@ -1,8 +1,8 @@
-.body-div {
+.body-div-pedido {
   display: flex;
   flex-direction: row;
   height: 100px;
-  width: 80%;
+  width: 90%;
   background-color: #e28413;
 
   margin: 5px 0;
@@ -10,7 +10,7 @@
   padding-top: 3px;
 }
 
-.id-div {
+.id-div-pedido {
   height: 100%;
   width: 25%;
 
@@ -36,7 +36,7 @@
   align-items: center;
 }
 
-.title-div {
+.title-div-pedido {
   height: 40%;
   width: 100%;
 }
