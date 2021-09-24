@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const history = useHistory();
   const [meusPedidos, setMeusPedidos] = useState([]);
   const [meusPedidosAtualizado, setMeusPedidosAtualizado] = useState([]);
+  const [isLoading, setLoading] = useState(false);
 
   var expiracao = new Date(new Date().getTime() + 15 * 60 * 1000);
 
@@ -110,6 +111,8 @@ export const AuthProvider = ({ children }) => {
         findOs,
         meusPedidos,
         setMeusPedidos,
+        isLoading,
+        setLoading,
       }}
     >
       {children}

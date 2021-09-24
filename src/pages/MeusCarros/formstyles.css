@@ -89,3 +89,13 @@
 .Form_Field-Input-nc.error {
   border-color: red;
 }
+
+.info-confirm-veiculo {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  margin-left: 35%;
+
+  align-items: baseline;
+}

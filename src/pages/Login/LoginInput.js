@@ -77,7 +77,7 @@ export const LoginInput = () => {
 
       <p>
         Não tem uma conta?{" "}
-        <a class="cadastro-click" onClick={() => alert("Cadastro Screen")}>
+        <a class="cadastro-click" href="/cadastro">
           Cadastrar-se
         </a>
       </p>
