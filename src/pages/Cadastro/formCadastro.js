@@ -14,32 +14,87 @@ import AuthContext from "../../context/authContext";
 const FormCadastro = () => {
   const history = useHistory();
   const { verifyError, setLoading } = useContext(AuthContext);
+  var isCpfValid = false;
+  var isEmailValid = false;
 
-  async function validaEmail(email) {
-    if (email) {
-      if (email.includes("@")) {
-        try {
-          let res = await axios({
-            url: `http://localhost:8000/oficina/usuarios/existeemail?email=${email}`,
-            method: "get",
-            timeout: 8000,
-          });
+  async function checkEmail(email) {
+    console.log("check mails ", email);
 
-          return !res.data;
-        } catch (err) {}
+    try {
+      let res = await axios({
+        url: `http://localhost:8000/oficina/usuarios/checaremail?email=${email}`,
+        method: "get",
+        timeout: 8000,
+      });
+
+      if (res.data) {
+        isEmailValid = false;
+      } else {
+        isEmailValid = true;
       }
-    }
+
+      return !res.data;
+    } catch (err) {}
   }
+
+  async function checkCpf(cpf) {
+    console.log(cpf);
+    try {
+      let res = await axios({
+        url: `http://localhost:8000/oficina/usuarios/checarcpf?cpf=${cpf}`,
+        method: "get",
+        timeout: 8000,
+      });
+
+      if (res.data) {
+        isCpfValid = false;
+      } else {
+        isCpfValid = true;
+      }
+
+      return !res.data;
+    } catch (err) {}
+  }
+
+  const cpfValueSchema = yup
+    .string()
+    .required("Preencha o campo")
+    .min(14, "CPF invalido");
+
+  const emailValueSchema = yup
+    .string()
+    .required("Preencha o campo")
+    .email("Email inválido");
 
   const validations = yup.object().shape({
     nome: yup.string().required("Preencha o campo"),
-    cpf: yup.string().required("Preencha o campo"),
+    cpf: cpfValueSchema.test(
+      "cpf-check",
+      "CPF ja cadastrado",
+      async (value) => {
+        if (await cpfValueSchema.isValid(value)) {
+          if (isCpfValid) {
+            return true;
+          } else {
+            return checkCpf(value);
+          }
+        }
+      }
+    ),
     telefone: yup.string().required("Preencha o campo"),
-    email: yup
-      .string()
-      .required("Preencha o campo")
-      .email("Email inválido")
-      .test("email-check", "Email ja cadastrado", validaEmail),
+    email: emailValueSchema.test(
+      "email-check",
+      "Email ja cadastrado",
+      async (value) => {
+        if (await emailValueSchema.isValid(value)) {
+          if (isEmailValid) {
+            return true;
+          } else {
+            return checkEmail(value);
+          }
+        }
+      }
+    ),
     senha: yup.string().required("Preencha o campo"),
   });
 
@@ -168,6 +223,11 @@ const FormCadastro = () => {
                     render={({ field }) => (
                       <InputMask
                         {...field}
+                        onKeyDown={(e) => {
+                          if (e.key === "Backspace") {
+                            isCpfValid = false;
+                          }
+                        }}
                         placeholder="999.999.999-99"
                         mask="999.999.999-99"
                         maskChar=""
@@ -235,11 +295,17 @@ const FormCadastro = () => {
                     </div>
                   </div>
                   <Field
-                    onBlur={null}
-                    onKeyDown={null}
                     name="email"
-                    type="email"
+                    type="text"
                     autoComplete="off"
+                    onChangeCapture={() => {
+                      isEmailValid = false;
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Backspace") {
+                        isEmailValid = false;
+                      }
+                    }}
                     className={
                       errors.email && touched.email
                         ? "Form_Field-Input-nu error"

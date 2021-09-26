@@ -10,7 +10,7 @@ body {
 .app-container {
   margin: 0;
   padding: 0;
-  min-height: 1080px;
+  min-height: 969px;
   max-height: auto;
 
   display: flex;
@@ -35,7 +35,7 @@ body {
 .div_card {
   width: 82%;
 
-  min-height: 1080px;
+  /* min-height: 1080px; */
 
   position: relative;
 
@@ -53,7 +53,7 @@ body {
   margin: 55px 0;
   width: 80%;
   /* height: 80%; */
-  min-height: 80%;
+  min-height: 77%;
 
   display: flex;
   flex-direction: column;

@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import MeusCarros from "../pages/MeusCarros";
 import MeusPedidos from "../pages/MeusPedidos";
 import Cadastro from "../pages/Cadastro";
+import AtivarEmail from "../pages/AtivarEmail";
 
 const Routes = () => (
   <Switch>
@@ -16,6 +17,7 @@ const Routes = () => (
     <PrivateRoute path="/meuspedidos" component={MeusPedidos} />
     <LoggedRoute path="/login" component={Login} />
     <LoggedRoute path="/cadastro" component={Cadastro} />
+    <LoggedRoute path="/ativaremail" component={AtivarEmail} />
   </Switch>
 );
 export default Routes;
