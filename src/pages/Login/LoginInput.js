@@ -12,6 +12,39 @@ import "./styles.css";
 export const LoginInput = () => {
   const { tryLogin } = useContext(AuthContext);
 
+  function newPassword() {
+    Swal.fire({
+      title: "Insira seu email",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+      },
+      showCancelButton: true,
+      confirmButtonText: "Solicitar nova senha",
+      showLoaderOnConfirm: true,
+      preConfirm: (email) => {
+        return api
+          .put(`/usuarios/solicitartrocadesenha?email=${email}`, null)
+          .then((response) => {
+            return response.data;
+          })
+          .catch((error) => {
+            Swal.showValidationMessage(
+              `Houve um problema: ${error.response.data.erros}`
+            );
+          });
+      },
+      allowOutsideClick: () => !Swal.isLoading(),
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          icon: "success",
+          title: `${result.value}`,
+        });
+      }
+    });
+  }
+
   const handleSubmit = (values) => {
     tryLogin(values);
   };
@@ -64,9 +97,9 @@ export const LoginInput = () => {
           </div>
 
           <div class="esqueceu-senha-div">
-            <a href="" class="esqueceu-senha-a">
+            <p onClick={() => newPassword()} class="esqueceu-senha-p">
               Esqueceu a senha?
-            </a>
+            </p>
           </div>
 
           <button className="Form_Btn-Input" type="submit">

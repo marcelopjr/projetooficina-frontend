@@ -61,14 +61,15 @@
   justify-content: right;
 }
 
-.esqueceu-senha-a {
+.esqueceu-senha-p {
   color: #000;
   font-size: 12px;
 }
 
-.esqueceu-senha-a:hover {
+.esqueceu-senha-p:hover {
   border-bottom: 1px solid lightskyblue;
   color: lightskyblue;
+  cursor: pointer;
 }
 
 .cadastro-click {

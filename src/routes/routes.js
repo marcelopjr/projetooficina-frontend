@@ -9,6 +9,7 @@ import MeusCarros from "../pages/MeusCarros";
 import MeusPedidos from "../pages/MeusPedidos";
 import Cadastro from "../pages/Cadastro";
 import AtivarEmail from "../pages/AtivarEmail";
+import RecuperarSenha from "../pages/RecuperarSenha";
 
 const Routes = () => (
   <Switch>
@@ -18,6 +19,7 @@ const Routes = () => (
     <LoggedRoute path="/login" component={Login} />
     <LoggedRoute path="/cadastro" component={Cadastro} />
     <LoggedRoute path="/ativaremail" component={AtivarEmail} />
+    <LoggedRoute path="/alterarsenha" component={RecuperarSenha} />
   </Switch>
 );
 export default Routes;
