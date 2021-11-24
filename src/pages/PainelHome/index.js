@@ -4,11 +4,10 @@ import Header from "../../components/PainelHeader";
 import { Container } from "../../components/Container";
 import { Footer } from "../../components/Footer/index";
 import { SideMenuBar } from "../../components/Sidebar";
-import Body from "./body";
 
 // import { Container } from './styles';
 
-const MeusPedidos = () => {
+const Home = () => {
   return (
     <>
       <Container>
@@ -19,8 +18,7 @@ const MeusPedidos = () => {
         <div className="div_card">
           <Header />
           <div className="sub_div">
-            <h1 style={{ marginBottom: 10 }}>Meus Pedidos</h1>
-            <Body></Body>
+            <h1>Bem-vindo a oficina SPEED CAR!</h1>
           </div>
           <Footer />
         </div>
@@ -29,4 +27,4 @@ const MeusPedidos = () => {
   );
 };
 
-export default MeusPedidos;
+export default Home;

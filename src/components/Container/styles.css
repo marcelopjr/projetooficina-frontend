@@ -19,6 +19,18 @@ body {
   overflow: hidden;
 }
 
+.app-container-layout {
+  margin: 0;
+  padding: 0;
+  min-height: 969px;
+  max-height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
 .warning_message {
   color: rgb(221, 57, 28);
 }

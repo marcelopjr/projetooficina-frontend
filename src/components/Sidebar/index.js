@@ -5,41 +5,46 @@ import "./styles.css";
 import avatar from "../../assets/avatar.png";
 import api from "../../service/api";
 import Cookie from "js-cookie";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export const SideMenuBar = () => {
   const history = useHistory();
   const [usuarioLogado, setUsuarioLogado] = useState();
 
-  var automaticLogout;
-  function secondsToExpire() {
-    var milisseconds = Math.abs(
-      new Date(JSON.parse(Cookie.get("@token")).expire) - new Date().getTime()
-    );
-    var seconds = Math.round(milisseconds / 1000);
-    if (seconds === 1) {
-      clearInterval(automaticLogout);
-      Swal.fire({
-        title: "Sessão expirada",
-        text: "Faça login novamente para continuar!",
-        icon: "error",
-        showCancelButton: false,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Ok!",
-        allowOutsideClick: false,
-      }).then((result) => {
-        if (result.isConfirmed) {
-          history.push("/login");
-        }
-      });
-    }
-  }
+  // var automaticLogout;
+  // function secondsToExpire() {
+  //   if (JSON.parse(Cookie.get("@token")).expire) {
+  //   }
 
-  if (Cookie.get("@token")) {
-    automaticLogout = setInterval(secondsToExpire, 1000);
-  }
+  //   var milisseconds = Math.abs(
+  //     new Date(JSON.parse(Cookie.get("@token")).expire) - new Date().getTime()
+  //   );
+  //   var seconds = Math.round(milisseconds / 1000);
+
+  //   console.log(seconds);
+  //   if (seconds === 2) {
+  //     clearInterval(automaticLogout);
+  //     Swal.fire({
+  //       title: "Sessão expirada",
+  //       text: "Faça login novamente para continuar!",
+  //       icon: "error",
+  //       showCancelButton: false,
+  //       confirmButtonColor: "#3085d6",
+  //       cancelButtonColor: "#d33",
+  //       confirmButtonText: "Ok!",
+  //       allowOutsideClick: false,
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         history.push("/login");
+  //       }
+  //     });
+  //   }
+  // }
+
+  // if (Cookie.get("@token")) {
+  //   automaticLogout = setInterval(secondsToExpire, 1000);
+  // }
 
   useEffect(() => {
     if (Cookie.get("@token")) {
@@ -92,20 +97,20 @@ export const SideMenuBar = () => {
             <>
               <div class="div-opcoes">
                 <li>
-                  <a href="/">
+                  <Link to="/painelhome" className="option-a">
                     <i class="fas fa-home"></i>Home
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="/meuscarros">
+                  <Link to="/meuscarros" className="option-a">
                     <i class="fas fa-car"></i>Meus Carros
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/meuspedidos">
+                  <Link to="/meuspedidos" className="option-a">
                     <i class="fas fa-clipboard-list"></i>Meus Pedidos
-                  </a>
+                  </Link>
                 </li>
               </div>
               <div class="botao-deslogar">

@@ -8,7 +8,7 @@ export const Footer = () => (
       <div id="criadores">
         <ul className="footer_ul">
           <li>
-            <strong>Criado por:</strong>
+            <strong>Sistema desenvolvido por: </strong>
             <a href="mailto:marcelopjrdev@gmail.com" rel="author">
               Marcelo Pires
             </a>

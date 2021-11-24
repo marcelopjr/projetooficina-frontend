@@ -13,7 +13,41 @@ export const AuthProvider = ({ children }) => {
   const [meusPedidosAtualizado, setMeusPedidosAtualizado] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
-  var expiracao = new Date(new Date().getTime() + 15 * 60 * 1000);
+  var expiracao = new Date(new Date().getTime() + 10 * 60 * 1000);
+
+  var automaticLogout;
+  function secondsToExpire() {
+    if (JSON.parse(Cookie.get("@token")).expire) {
+    }
+
+    var milisseconds = Math.abs(
+      new Date(JSON.parse(Cookie.get("@token")).expire) - new Date().getTime()
+    );
+    var seconds = Math.round(milisseconds / 1000);
+
+    console.log(seconds);
+    if (seconds === 2) {
+      clearInterval(automaticLogout);
+      Swal.fire({
+        title: "Sessão expirada",
+        text: "Faça login novamente para continuar!",
+        icon: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ok!",
+        allowOutsideClick: false,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          history.push("/login");
+        }
+      });
+    }
+  }
+
+  if (Cookie.get("@token")) {
+    automaticLogout = setInterval(secondsToExpire, 1000);
+  }
 
   function findOs(filtro) {
     if (filtro === "Todas") {
@@ -47,6 +81,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   function tryLogin(values) {
+    console.log("tentei logar");
     const login = {
       email: values.email,
       senha: values.password,
@@ -69,7 +104,7 @@ export const AuthProvider = ({ children }) => {
             showConfirmButton: false,
             timer: 1500,
           });
-          history.push("/");
+          history.push("/painelhome");
         }
       })
       .catch((error) =>

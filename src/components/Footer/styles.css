@@ -8,14 +8,13 @@
   align-items: center;
 
   width: 100%;
+
+  bottom: 0;
 }
 
 #criadores {
-  margin-right: 10%;
   display: flex;
-
-  justify-content: right;
-  justify-items: right;
+  justify-content: center;
 }
 
 .footer_ul {
@@ -24,8 +23,6 @@
   font-size: 25px;
   margin-right: 2%;
   color: rgb(255, 254, 254);
-
-  margin-left: 50%;
 }
 
 a {

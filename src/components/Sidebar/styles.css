@@ -71,7 +71,8 @@
 #sidebar .list-items li:first-child {
   border-top: none;
 }
-#sidebar .list-items li a {
+
+.option-a {
   color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;

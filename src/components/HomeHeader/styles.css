@@ -1,0 +1,20 @@
+.home-header {
+  width: 100%;
+  height: 60px;
+  background-color: #333;
+
+  padding: 0px 5%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-logo {
+  height: 70px;
+  width: 120px;
+}
+
+.home-user {
+  height: 100%;
+  display: flex;
+}

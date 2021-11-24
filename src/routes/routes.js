@@ -4,6 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import LoggedRoute from "./LoggedRoute";
 
 import Home from "../pages/Home";
+import PainelHome from "../pages/PainelHome";
 import Login from "../pages/Login/Login";
 import MeusCarros from "../pages/MeusCarros";
 import MeusPedidos from "../pages/MeusPedidos";
@@ -14,6 +15,7 @@ import RecuperarSenha from "../pages/RecuperarSenha";
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={Home} />
+    <PrivateRoute path="/painelhome" exact component={PainelHome} />
     <PrivateRoute path="/meuscarros" component={MeusCarros} />
     <PrivateRoute path="/meuspedidos" component={MeusPedidos} />
     <LoggedRoute path="/login" component={Login} />

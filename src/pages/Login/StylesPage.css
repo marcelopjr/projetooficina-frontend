@@ -1,0 +1,98 @@
+.login-card {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100% auto 200px;
+
+  grid-template-areas: "l c";
+
+  width: 70%;
+
+  height: 750px;
+  align-self: center;
+  margin-top: 80px;
+
+  border-radius: 30px;
+  box-shadow: 6px 6px 6px #667;
+}
+
+.login-part {
+  grid-area: l;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+
+  background-color: lightgray;
+
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-part-title {
+  margin-bottom: 45px;
+  font-size: 30px;
+}
+
+.singup-part {
+  grid-area: c;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  background-color: #333;
+
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.singup-contents {
+  height: 280px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.singup-part-title {
+  color: lightgrey;
+  font-size: 30px;
+}
+
+.singup-part-text {
+  color: lightgray;
+}
+
+.singup-part-btn {
+  height: 50px;
+  width: 50%;
+  border-radius: 25px;
+  border: none;
+  background-color: lightgray;
+  cursor: pointer;
+
+  align-self: center;
+  font-size: 15px;
+  color: #333;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  letter-spacing: 2px;
+
+  transition: all 0.2s ease;
+}
+
+.singup-part-btn:active {
+  transform: scale(0.9);
+}
+
+.singup-part-btn:hover {
+}

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 
-import Header from "../../components/Header";
+import Header from "../../components/PainelHeader";
 import { Container } from "../../components/Container";
 import { Footer } from "../../components/Footer/index";
 import AuthContext from "../../context/authContext";

@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 import AuthContext from "../../context/authContext";
 import api from "../../service/api";
-import "./styles.css";
+import "./StylesForm.css";
 
 export const LoginInput = () => {
   const { tryLogin } = useContext(AuthContext);
@@ -72,6 +72,7 @@ export const LoginInput = () => {
             </div>
             <Field
               name="email"
+              type="email"
               className="Form_Field-Input"
               placeholder="E-mail"
               autoComplete="off"
@@ -103,17 +104,10 @@ export const LoginInput = () => {
           </div>
 
           <button className="Form_Btn-Input" type="submit">
-            Login
+            INICIAR SESSÃO
           </button>
         </Form>
       </Formik>
-
-      <p>
-        Não tem uma conta?{" "}
-        <a class="cadastro-click" href="/cadastro">
-          Cadastrar-se
-        </a>
-      </p>
     </>
   );
 };
