@@ -56,7 +56,7 @@ const Body = () => {
       data_entrega_carro: values.data,
       carro_id: values.carro,
     };
-    console.log(data);
+
     api
       .post("/ordemservicos/novaos", data, {
         headers: {

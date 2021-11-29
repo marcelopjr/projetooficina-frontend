@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import LoggedRoute from "./LoggedRoute";
@@ -12,7 +12,10 @@ import Cadastro from "../pages/Cadastro";
 import AtivarEmail from "../pages/AtivarEmail";
 import RecuperarSenha from "../pages/RecuperarSenha";
 
-const Routes = () => (
+import TimerContext from "../context/timerContext";
+// const { callTimer } = useContext(TimerContext);
+
+const Routes = ({}) => (
   <Switch>
     <Route path="/" exact component={Home} />
     <PrivateRoute path="/painelhome" exact component={PainelHome} />

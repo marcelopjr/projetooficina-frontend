@@ -18,8 +18,15 @@ const Login = () => {
       <Container layout="1">
         <div className="login-card">
           <div className="login-part">
-            <h2 className="login-part-title">Iniciar Sessão</h2>
-            <LoginInput />
+            <div class="arrow-btn">
+              <Link to="/" class="link-btn-arrow">
+                <i class="fas fa-arrow-left fa-3x"></i>
+              </Link>
+            </div>
+            <div class="form-div">
+              <h2 className="login-part-title">Iniciar Sessão</h2>
+              <LoginInput />
+            </div>
           </div>
 
           <div className="singup-part">

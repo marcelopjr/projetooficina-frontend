@@ -1,0 +1,112 @@
+#user-info-mh {
+  height: 50px;
+  width: 190px;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+
+  align-items: center;
+  align-self: center;
+
+  border-radius: 50px;
+
+  color: lightgray;
+}
+
+#user-info-mh:hover {
+  cursor: pointer;
+  background-color: lightgray;
+  color: #333;
+}
+
+.open {
+  background-color: lightgray;
+  color: #333 !important;
+}
+
+.menu-user-mh-outside {
+  width: 100%;
+  height: 100%;
+
+  max-width: 1920px;
+  max-height: 969px;
+
+  background-color: transparent;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.menu-user-mh-outside:hover {
+  cursor: context-menu;
+}
+
+#menu-user-mh {
+  height: 155px;
+  width: 180px;
+  background-color: lightgray;
+
+  position: absolute;
+
+  align-self: center;
+
+  top: 60px;
+  right: 5%;
+  z-index: 9999;
+
+  border-radius: 20px;
+
+  padding: 0px 0px;
+}
+
+#menu-user-mh .list-items {
+  list-style: none;
+}
+
+#menu-user-mh .list-items li {
+  line-height: 50px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #333;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+#menu-user-mh .list-items li:hover {
+  background-color: #333;
+  color: lightgray;
+}
+
+#menu-user-mh .list-items li .ea-option:hover {
+  color: lightgray;
+}
+
+#menu-user-mh .list-items li:nth-child(1) {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#menu-user-mh .list-items li:nth-child(3) {
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+#menu-user-mh .list-items li:nth-child(3) {
+  border-top: none;
+  border-bottom: none;
+}
+
+#menu-user-mh .list-items li .ea-option {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
+  display: block;
+  padding-left: 20px;
+}

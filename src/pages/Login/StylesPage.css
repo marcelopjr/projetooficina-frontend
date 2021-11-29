@@ -21,10 +21,43 @@
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 
+  height: 100%;
+
   background-color: lightgray;
 
   display: flex;
   align-content: center;
+  flex-direction: column;
+  padding: 50px 0px;
+
+  align-items: center;
+}
+
+.arrow-btn {
+  justify-self: left;
+  align-self: flex-start;
+  margin-left: 8%;
+
+  transition: all 0.2s ease;
+}
+
+.arrow-btn:hover {
+  cursor: pointer;
+}
+
+.arrow-btn:active {
+  transform: scale(0.9);
+}
+
+.link-btn-arrow {
+  color: #333;
+}
+
+.form-div {
+  height: 85%;
+  width: 100%;
+
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
