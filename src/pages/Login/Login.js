@@ -31,7 +31,7 @@ const Login = () => {
 
           <div className="singup-part">
             <div className="singup-contents">
-              <h2 className="singup-part-title">Não tem um conta?</h2>
+              <h2 className="singup-part-title">Não tem uma conta?</h2>
               <p className="singup-part-text">
                 Não perca a chance e cadastre-se abaixo!
               </p>
